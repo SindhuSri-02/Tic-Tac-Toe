@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    color: #555;
+    background-image:url(back.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+.clearfix {zoom:1}
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto 0 auto;
+}
+
+
+/*CONTAINER*/
+
+.container {
+    
+    background-color: #fff;
+    width: 70%;
+    margin-left: 15%;
+    padding: 20px;
+    box-shadow: 0 2px 2px #9f9b9b;
+}
+
+.player {
+    padding: 20px;
+}
+
+.active {
+    background-color: #f5f5f5;
+}
+
+.winner {
+    background-color: #c44f0d;
+}
+
+
+/*LINKS*/
+
+a:link,
+a:active,
+a:visited {
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+    font-size: 100%;
+    padding: 10px;
+    transform: font-size 1s;
+}
+
+a:hover {
+    color: #ED7029;
+    font-size: 110%;
+}
+
+
+/*ICONS*/
+.icon-small {
+    color: #ED7029;
+    display: inline-block;
+    font-size: 100%;
+    text-align: center;
+    line-height: 120%;
+    margin-top: -4px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 40%;
+}
+
+
+.icon-big {
+    color: #ED7029;
+    font-size: 300%;
+    display: block;
+    text-align: center;
+}
+
+/*HEADINGS*/
+
+h2 {
+    font-size: 200%;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/*GRID*/
+
+.grid-box {
+    display: grid;
+    background-color: #333;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-gap: 2px;
+    padding: 0;
+}
+
+.griditem {
+    background-color: rgba(255,255,255,1);
+    color: #ED7029;
+    padding: 43px;
+    text-align: center;
+    font-size: 190%;
+    font-weight: 300;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/*front*/
+
+.front {
+    background-color: #FEE140;
+    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sigmar One', cursive;
+    color: #000;
+    vertical-align: middle;
+    font-size: 400%;
+    display: block;
+    margin-top: 20%;
+}
+
+.playing {
+    display: none;
+}
+
+button {
+    border: 1px solid #ED7029;
+    color: #000;
+    background-color: #ED7029;
+    font-weight: 300;
+    padding: 25px;
+    font-size: 200%;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+

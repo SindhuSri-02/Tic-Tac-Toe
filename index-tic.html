@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="tic-tac-toe-game">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="vendors/css/7.1%20Grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        
+        <title>tic tac toe</title>
+        
+    </head>
+    
+    <body>
+        
+        <div class="container front" id="container">
+            <section id="next">
+                <h1>tic tac toe</h1>
+                <button class="start" onclick="return playboard();">startgame</button>
+            </section>
+            
+            <section class="playing">
+                <a href="#" onclick="return ne();"><i class="material-icons icon-small">add</i>New game</a>
+                <div class="row player">
+                    <div class="col span-1-of-2" id="playerOne">
+                        <h2 id="name-0">multiplayer</h2>
+                        <i class="material-icons icon-big one">people</i>   <!--close-->
+                    </div>
+
+                    <div class="col span-1-of-2" id="playerTwo">
+                        <h2 id="name-1">computer</h2>
+                        <i class="material-icons icon-big two">personal_video</i>    <!--radio_button_unchecked-->
+                    </div>
+                </div>
+
+                <div class="grid-box" id="grid">
+                    <div class="griditem" data-cell-index="0">click</div>
+                    <div class="griditem" data-cell-index="1">click</div>
+                    <div class="griditem" data-cell-index="2">click</div>
+                    <div class="griditem" data-cell-index="3">click</div>
+                    <div class="griditem" data-cell-index="4">click</div>
+                    <div class="griditem" data-cell-index="5">click</div>
+                    <div class="griditem" data-cell-index="6">click</div>
+                    <div class="griditem" data-cell-index="7">click</div>
+                    <div class="griditem" data-cell-index="8">click</div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <script>
+            
+            let gameActive = true;
+            let currentPlayer = 'X';
+            let gameState = ['','','','','','','','',''];
+            let selected = false;
+            
+            function computer() {
+                var num = Math.floor(Math.random()*9);
+                if(gameState[num] === '') {
+                    gameState[num] = currentPlayer;
+                    FindByAttributeValue('data-cell-index', num.toString(), 'div');
+                    handleResult();
+                } else {
+                    computer();
+                }
+            }
+            
+            function FindByAttributeValue(attribute, value, element_type)    {
+                  element_type = element_type || "*";
+                  var All = document.getElementsByTagName(element_type);
+                  for (var i = 0; i < All.length; i++)       {
+                    if (All[i].getAttribute(attribute) == value) { 
+                        All[i].innerHTML = currentPlayer;
+                        return;
+                    }
+                  }
+            }
+            
+            function handleCellClick(clickedCellEvent) {
+                if(gameActive) {
+                    if(selected) {
+                        if(document.getElementById('name-1').textContent === 'computer' && currentPlayer !== 'X') {
+                        return;
+                        }
+
+                        function cellclick() {
+                            clickedCell = clickedCellEvent.target;
+                            clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+                            if(gameState[clickedCellIndex] !== '' || !gameActive) {
+                                return;
+                            }
+
+                            gameState[clickedCellIndex] = currentPlayer;
+                            clickedCell.innerHTML = currentPlayer;
+                            handleResult();
+                        }
+
+                        if(!(document.getElementById('name-1').textContent === 'computer')) {
+                            cellclick();
+                        }
+
+                        if(document.getElementById('name-1').textContent === 'computer' && currentPlayer === 'X') {
+                            cellclick();
+                        }
+                    } else {return;}
+                    
+                }
+                
+            }
+            
+            function handleResult() {
+                const winningCondition = [ [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6] ];
+                let won = false;
+                for (var i=0;i <= 7;i++) {
+                    const winCon = winningCondition[i];
+                    var a = gameState[winCon[0]];
+                    var b = gameState[winCon[1]];
+                    var c = gameState[winCon[2]];
+                    
+                    if (a === '' || b === '' || c === '') {
+                        continue;
+                    }
+                    
+                    if(a === b && b === c) {
+                        won = true;
+                        break;
+                    }
+                }
+                
+                if(won) {
+                    gameActive = false;
+                    if(currentPlayer === 'X') {
+                        document.getElementById('playerOne').classList.add('winner');
+                        document.getElementById('name-0').innerHTML = 'WINNER';
+                    } else {
+                        document.getElementById('playerTwo').classList.add('winner');
+                        document.getElementById('name-1').innerHTML = 'WINNER';
+                    }
+                    setTimeout(function(){alert(`winner is ${currentPlayer} start a new game`)},1000);
+                    return;
+                }
+                
+                let roundDraw = !gameState.includes('');
+                if (roundDraw) {
+                    setTimeout(function() {alert(`tie game----start new game`)}, 1000);
+                    gameActive = false;
+                    return;
+                }
+                
+                handleChangePlayer();
+                
+            }
+            
+            function handleChangePlayer() {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                document.getElementById("playerOne").classList.toggle("active");
+                document.getElementById("playerTwo").classList.toggle("active");
+                if(document.getElementById('name-1').textContent === 'computer' && currentPlayer === 'O') {
+                    computer();
+                }
+            }
+            
+            document.querySelectorAll('.griditem').forEach(griditem => griditem.addEventListener('click', handleCellClick));
+            
+            document.querySelector('#playerOne').addEventListener('click',function() {
+                if(selected === false) {
+                    document.getElementById('name-0').textContent = 'player-1';
+                    document.getElementById('name-1').textContent = 'player-2';
+                    todo();
+                }
+            });
+            
+            document.querySelector('#playerTwo').addEventListener('click',function() {
+                if(selected === false) {
+                    document.getElementById('name-0').textContent = 'player';
+                    document.getElementById('name-1').textContent = 'computer';
+                    todo();
+                }
+            });
+            
+            
+            
+            function ne() {
+                window.location.reload();
+                return false;
+            }
+            
+            function todo() {
+                document.querySelector('.one').textContent = 'close';
+                document.querySelector('.two').textContent = 'radio_button_unchecked';
+                document.getElementById('playerOne').classList.add('active');
+                selected = true;
+            }
+            
+            function playboard() {
+                var ele = document.getElementById('next');
+                ele.parentNode.removeChild(ele);
+                document.querySelector('.playing').style.display = 'block';
+                document.getElementById('container').classList.remove('front'); 
+            }
+            
+        </script>   
+    </body>
+       
+    
+</html>
