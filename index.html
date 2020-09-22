@@ -4,15 +4,15 @@
     
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="tic-tac-toe-game">
         
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="vendors/css/7.1%20Grid.css">
-        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
         
         <title>tic tac toe</title>
         
@@ -22,9 +22,30 @@
         
         <div class="container front" id="container">
             <section id="next">
-                <h1>tic tac toe</h1>
-                <button class="start" onclick="return playboard();">startgame</button>
+                <h1>Tic Tac Toe</h1>
+                <button class="start" onclick="return playboard();">Start game &#8594;</button>
             </section>
+            <!-- 
+                @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+                }
+
+                /* Smartphones (landscape) ----------- */
+                @media only screen and (min-width: 321px) {
+
+                }
+
+                /* Smartphones (portrait) ----------- */
+                @media only screen and (max-width: 320px) {
+
+                }
+
+                /* iPads (portrait and landscape) ----------- */
+                @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+                }
+
+            -->
             
             <section class="playing">
                 <a href="#" onclick="return ne();"><i class="material-icons icon-small">add</i>New game</a>
@@ -41,15 +62,15 @@
                 </div>
 
                 <div class="grid-box" id="grid">
-                    <div class="griditem" data-cell-index="0">click</div>
-                    <div class="griditem" data-cell-index="1">click</div>
-                    <div class="griditem" data-cell-index="2">click</div>
-                    <div class="griditem" data-cell-index="3">click</div>
-                    <div class="griditem" data-cell-index="4">click</div>
-                    <div class="griditem" data-cell-index="5">click</div>
-                    <div class="griditem" data-cell-index="6">click</div>
-                    <div class="griditem" data-cell-index="7">click</div>
-                    <div class="griditem" data-cell-index="8">click</div>
+                    <div class="griditem" data-cell-index="0">&nbsp;</div>
+                    <div class="griditem" data-cell-index="1">&nbsp;</div>
+                    <div class="griditem" data-cell-index="2">&nbsp;</div>
+                    <div class="griditem" data-cell-index="3">&nbsp;</div>
+                    <div class="griditem" data-cell-index="4">&nbsp;</div>
+                    <div class="griditem" data-cell-index="5">&nbsp;</div>
+                    <div class="griditem" data-cell-index="6">&nbsp;</div>
+                    <div class="griditem" data-cell-index="7">&nbsp;</div>
+                    <div class="griditem" data-cell-index="8">&nbsp;</div>
                 </div>
             </section>
             
@@ -175,6 +196,7 @@
                 if(selected === false) {
                     document.getElementById('name-0').textContent = 'player-1';
                     document.getElementById('name-1').textContent = 'player-2';
+                    document.getElementById('grid').style.display = 'grid';
                     todo();
                 }
             });
@@ -183,6 +205,7 @@
                 if(selected === false) {
                     document.getElementById('name-0').textContent = 'player';
                     document.getElementById('name-1').textContent = 'computer';
+                    document.getElementById('grid').style.display = 'grid';
                     todo();
                 }
             });

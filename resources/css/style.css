@@ -4,15 +4,11 @@
     box-sizing: border-box;
 }
 
-
 html,
 body {
     color: #555;
-    background-image:url(back.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    font-family: 'Raleway', sans-serif;
+    background-color: #03045e;
+    font-family: 'Lato', sans-serif;
     font-size: 20px;
     font-weight: 400;
     text-rendering: optimizeLegibility;
@@ -35,16 +31,14 @@ body {
     margin: 0 auto 0 auto;
 }
 
-
 /*CONTAINER*/
 
 .container {
-    
-    background-color: #fff;
+    height: 100vh;
+    background-color: #03045e;
     width: 70%;
     margin-left: 15%;
     padding: 20px;
-    box-shadow: 0 2px 2px #9f9b9b;
 }
 
 .player {
@@ -52,11 +46,24 @@ body {
 }
 
 .active {
-    background-color: #f5f5f5;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+    animation: zoom 1s linear infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .winner {
-    background-color: #c44f0d;
+    background-color: #03045e;
 }
 
 
@@ -67,21 +74,22 @@ a:active,
 a:visited {
     text-decoration: none;
     text-align: center;
-    color: #333;
+    color: #fff;
     font-size: 100%;
     padding: 10px;
     transform: font-size 1s;
+    margin-left: 40%;
 }
 
 a:hover {
-    color: #ED7029;
-    font-size: 110%;
+    color: #caf0f8;
+    font-size: 105%;
 }
 
 
 /*ICONS*/
 .icon-small {
-    color: #ED7029;
+    color: #caf0f8;
     display: inline-block;
     font-size: 100%;
     text-align: center;
@@ -89,13 +97,12 @@ a:hover {
     margin-top: -4px;
     vertical-align: middle;
     margin-right: 10px;
-    margin-left: 40%;
 }
 
 
 .icon-big {
-    color: #ED7029;
-    font-size: 300%;
+    color: #caf0f8;
+    font-size: 250%;
     display: block;
     text-align: center;
 }
@@ -103,26 +110,29 @@ a:hover {
 /*HEADINGS*/
 
 h2 {
-    font-size: 200%;
+    font-size: 160%;
     text-align: center;
-    font-weight: 300;
+    font-family: inherit;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    color:  #fff;
     margin: 0;
 }
 
 /*GRID*/
 
 .grid-box {
-    display: grid;
-    background-color: #333;
+    display: none;
+    background-color: #fff;
     grid-template-columns: repeat(3, 33.3%);
     grid-gap: 2px;
-    padding: 0;
+    padding: 0;  
 }
 
 .griditem {
-    background-color: rgba(255,255,255,1);
-    color: #ED7029;
+    background-color: #03045e;
+    font-family: 'Permanent Marker', cursive;
+    color: #caf0f8;
     padding: 43px;
     text-align: center;
     font-size: 190%;
@@ -134,10 +144,7 @@ h2 {
 /*front*/
 
 .front {
-    background-color: #FEE140;
-    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
-    background-position: center;
-    background-size: cover;
+    background-color: #03045e;
     text-align: center;
     height: 100vh;
 }
@@ -145,8 +152,8 @@ h2 {
 h1 {
     margin: 0;
     padding: 0;
-    font-family: 'Sigmar One', cursive;
-    color: #000;
+    font-family: 'Arizonia', cursive;
+    color: #caf0f8;
     vertical-align: middle;
     font-size: 400%;
     display: block;
@@ -158,14 +165,18 @@ h1 {
 }
 
 button {
-    border: 1px solid #ED7029;
-    color: #000;
-    background-color: #ED7029;
-    font-weight: 300;
-    padding: 25px;
-    font-size: 200%;
+    background-color: #03045e;
+    border: none;
+    border-bottom: 1px solid #caf0f8;
+    color: #caf0f8;
+    font-family: 'Arizonia', cursive;
+    font-size: 150%;
     margin-top: 50px;
     cursor: pointer;
+    transition: all 0.2s;
+}
+button:hover {
+    transform: scale(1.05);
 }
 
 

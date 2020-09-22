@@ -1,0 +1,81 @@
+@media screen and (width: 1024px) {
+    body {
+        font-size: 23px;
+    }
+    .row {
+        margin: 2.5% 0 2.5% 0;
+    }
+    .griditem {
+        padding: 50px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (width: 768px) {
+    .row {
+        margin: 2% 0 2% 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    .container {
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    .col {
+        margin: 1.5% 0 1.5% 0;
+    }
+    a:link,
+    a:active,
+    a:visited {
+        margin-left: 35%;
+    }
+    
+    .griditem {
+        padding: 38px;
+    }
+}
+
+@media screen and (max-width: 352px) {
+    a:link,
+    a:active,
+    a:visited {
+        margin-left: 30%;
+    }
+    .griditem {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    body {
+        font-size: 13px;
+    }
+    a:link,
+    a:active,
+    a:visited {
+        margin-left: 28%;
+    }
+    .griditem {
+        padding: 15px;
+    }
+}
+
+
+
+
+
