@@ -90,13 +90,14 @@ let gameActive = true;
                         alert(`winner is ${currentPlayer} start a new game`);
                         window.location.reload();
                     },1000);
+                    return;
                 }
                 
                 let roundDraw = !gameState.includes('');
                 if (roundDraw) {
                     setTimeout(function() {alert(`tie game----start new game`)}, 1000);
                     gameActive = false;
-                    return true;
+                    return;
                 }
                 
                 handleChangePlayer();
